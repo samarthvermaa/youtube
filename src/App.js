@@ -1,6 +1,9 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import Body from "./components/Body";
 import Header from "./components/Header";
+import MainContainer from "./components/MainContainer";
+import Watch from "./components/Watch";
 import { StoreProvider } from "./utils/store";
 
 /**
@@ -16,11 +19,28 @@ import { StoreProvider } from "./utils/store";
  *        VideoCard
  */
 
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <Body />,
+    children: [
+      {
+        path: "/",
+        element: <MainContainer />,
+      },
+      {
+        path: "/watch",
+        element: <Watch />,
+      },
+    ],
+  },
+]);
+
 function App() {
   return (
     <StoreProvider>
       <Header />
-      <Body />
+      <RouterProvider router={appRouter} />
     </StoreProvider>
   );
 }

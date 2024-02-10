@@ -3,7 +3,7 @@ import React from "react";
 const VideoCard = ({ info }) => {
   const { snippet, statistics } = info;
   return (
-    <div className="rounded-lg shadow-xl p-2 h-88 w-72 m-2">
+    <div className="rounded-lg shadow-xl p-2 h-80 w-72 m-2">
       <img
         className="rounded-lg"
         alt="id"
